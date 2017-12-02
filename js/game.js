@@ -1,4 +1,5 @@
 var cursors;
+let sprite = null;
 
 
 /* --- main --- */
@@ -7,7 +8,7 @@ window.onload = function() {
   let game = new Phaser.Game("100", "100", Phaser.AUTO, null, {
                                preload: preload,
                                create: create,
-                               update: foo,
+                               update: update,
                                render: render
                              }, false, false);
 
@@ -42,7 +43,7 @@ window.onload = function() {
      layer.resizeWorld();
 
      /* test character */
-     var sprite = game.add.sprite(140 * scaleX, 140 * scaleY, 'characters', 23);
+     sprite = game.add.sprite(140 * scaleX, 140 * scaleY, 'characters', 23);
      sprite.scale.setTo(scaleX, scaleY);
 
      sprite.animations.add('walk', [23,24,25,26]);
@@ -55,10 +56,21 @@ window.onload = function() {
    /* This function is called when the game is updated. */
    function update() {
      /* controls */
-     if (cursors.left.isDown)  { }
-     if (cursors.right.isDown) { }
-     if (cursors.up.isDown)    { }
-     if (cursors.down.isDown)  { }
+     if (cursors.left.isDown) {
+       sprite.x = sprite.x - 1;
+     }
+
+     if (cursors.right.isDown) {
+       sprite.x = sprite.x + 1;
+     }
+
+     if (cursors.up.isDown) {
+       sprite.y = sprite.y - 1;
+     }
+
+     if (cursors.down.isDown) {
+       sprite.y = sprite.y + 1;
+     }
    }
 
    /* This function is called when the game is rendered. */
