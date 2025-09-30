@@ -1,5 +1,9 @@
 This is a WIP Zelda-style, single room, horde mode game.
 
+### Local Development
+To serve the project locally, run the following command:
+`yarn run dev`
+
 ### Credits
 * lot9s
 
